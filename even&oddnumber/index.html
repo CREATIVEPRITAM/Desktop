@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=deventice-width, initial-scale=1.0">
+    <title>eventen oddd number</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" ></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" />
+</head>
+<body style="display: flex;">
+
+    
+    <div class="demo" id="div" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <h1 id="haading" draggable="true" ondragstart="drag(event)">Hello</h1>
+    </div>
+    <div class="demo" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div class="demo" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        
+  
+
+    <script>
+     function allowDrop(event) {
+        event.preventDefault();
+}
+
+function drag(event) {
+    event.dataTransfer.setData("text", event.target.id);
+        event.target.parentElement.style.border="none";
+    
+}
+
+function drop(event) {
+    event.preventDefault();
+  var data = event.dataTransfer.getData("text");
+  event.target.appendChild(document.getElementById(data));
+  document.getElementById("haading").parentElement.style.border="block";
+  console.log(document.getElementById("haading").parentElement.style.border);
+}
+    </script>
+
+    <!--how to find even and odd number 
+        <div>
+            <h3>all even number</h3>
+            <span id="even"></span>
+        </div>
+        <div ;>
+            <h3>all odd number</h3>
+            <span id="odd"></span>
+        </div>
+        <button onclick="targetValue()">
+            check number
+        </button>
+    <script>
+        function targetValue() {
+            // if(100){  //if there is non-zero inside if then it wll be always executed
+                
+            // }
+            for(var i = 0; i <= 100; i++){
+               if(i%2 == 0){
+                    console.log("chal rha he");
+                    document.getElementById("even").innerText += "[" +i+"] ";
+                    //document.getElementById("even").innerText = document.getElementById("even").innerText +  i +" ";
+                }else { 
+                    document.getElementById("odd").innerText += "[" +i+"] ";
+                }
+            }
+        }
+    </script>
+    -->
+    </body>
+</html>

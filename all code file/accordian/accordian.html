@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.5.0-1/css/all.min.css" integrity="sha512-xEGx3E22YcUzfX525T3KV7SqNexb09E2CckB6lBB/dT930VlbSX9JnQlLiogtSLAl9yGAJGKDu7O1ZanrqljGg==" 
+       crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="second.css">
+    <title>Document</title>
+</head>
+<body>
+  
+   
+    <div class="header">
+        <button class="btn" type="button" id="bt1">home</button>
+    </div>
+       <div class="body" id="demo">
+            
+           <p>
+               It is a long established fact that a reader will be distracted by 
+               the readable content of a page when looking at its layout. The
+                point o
+            </p>   
+       </div>
+       <div class="header">
+        <button class="btn" type="button" id="bt2" >About</button>
+       </div>
+       <div class="body" id="demo1" style="display: none;">
+        
+        <p>It is a long established fact that a reader will be distracted by 
+            the readable content of a page when looking at its layout. The
+             point o</p>
+       </div>
+       <div class="header">
+        <button class="btn" type="button" id="bt3" >Skill</button>
+       </div>
+       <div class="body" id="demo2" style="display: none;">
+        
+        <p>It is a long established fact that a reader will be distracted by 
+            the readable content of a page when looking at its layout. The
+             point o</p>
+       </div>
+  <!--
+       <center>
+        <div id="onoff" style="height: 100px; width: 100px; border-radius: 50px; background-color: yellow;"></div>
+     
+    
+        <div style="height: 50px; width: 20px; background-color: rgb(2, 2, 2);"></div>
+     
+        <input type="text" id="var1" value="58">
+        <input type="text" id="var2" value="33">
+        <button type="button" onclick="changevalu()">change value</button>
+
+    </center> 
+    <button type="button" onclick="changecolor()">switch</button>
+    -->
+    <ul id="mainList">
+        <li onclick ="deleteItem()">Please enter item <i fa></i></li>
+        
+    </ul>
+    <input type="text" id = "item" />
+    <button id="addItem">Add Item</button>ff
+    <script>
+        document.getElementById("bt1").addEventListener("click",function (){accrodian(0)});
+        document.getElementById("bt2").addEventListener("click",function (){accrodian(1)});
+        document.getElementById("bt3").addEventListener("click",function (){accrodian(2)});
+        document.getElementById("addItem").addEventListener("click",function(){
+            addItem();
+        });
+
+        function addItem(){
+            var inputItem = document.getElementById("item").value;
+            var oldData = document.getElementById("mainList").innerHTML;
+            var newData = oldData + '<li id =' + inputItem + ' onclick="deleteItem()" style="cursor:pointer">' + inputItem + "<i><></li>";
+            document.getElementById("mainList").innerHTML = newData;
+        }
+        function deleteItem(){
+            var currentClickedItem = event.target.outerHTML;
+            var oldData = document.getElementById("mainList").innerHTML;
+            oldData= oldData.replace(currentClickedItem,"");
+            document.getElementById("mainList").innerHTML = oldData;
+        }
+
+        function accrodian(idenetifier){
+            console.dir(idenetifier);
+            if(idenetifier == 0){
+                document.getElementById("demo").style.display="block";
+                document.getElementById("demo1").style.display="none";
+                document.getElementById("demo2").style.display="none";
+            }else if (idenetifier == 1){
+                document.getElementById("demo").style.display="none";
+                document.getElementById("demo1").style.display="block";
+                document.getElementById("demo2").style.display="none";
+            }else{
+                document.getElementById("demo").style.display="none";
+                document.getElementById("demo1").style.display="none";
+                document.getElementById("demo2").style.display="block";
+            }
+        }
+
+
+
+
+
+        var hello = 0;
+        function myFunction(){
+            document.getElementById("demo1").style.display="none";
+            document.getElementById("demo2").style.display="none";
+
+            if(hello==0){
+                document.getElementById("demo").style.display="none";
+                hello=1;
+           }
+           else{
+               document.getElementById("demo").style.display="block";
+               hello = 0;
+           }
+         
+           
+        }
+
+        var chat=0;
+        function myAbout(){
+            document.getElementById("demo").style.display="none";
+            document.getElementById("demo2").style.display="none";
+
+            if(chat==0){
+            document.getElementById("demo1").style.display="block";
+            chat=1;
+            }
+            else{
+            document.getElementById("demo1").style.display="none";
+            chat=0;
+            }
+        }
+          
+        function myction(){
+            document.getElementById("demo").style.display="none";
+            document.getElementById("demo2").style.display="none";
+        var cha=0;
+            if(cha==0){
+            document.getElementById("demo2").style.display="block";
+            cha=1;
+            }
+            else{
+            document.getElementById("demo2").style.display="none";
+            cha=0;
+            }
+        }
+        
+
+    
+/*
+        setInterval(() => {
+            changecolor();
+        }, 500);
+       
+        setTimeout(() => {
+            changecolor();
+        }, 500);
+        
+        var valb = 0;
+        function changecolor(){
+             if(valb==0){
+                document.getElementById("onoff").style.backgroundColor="#EFEFEF";
+                valb=1;
+             }
+             else{
+                document.getElementById("onoff").style.backgroundColor="yellow";
+                valb = 0;
+             }
+        }
+        
+        debugger
+        function changevalu(){
+          document.getElementById("var1").value = parseInt(document.getElementById("var1").value) + parseInt(document.getElementById("var2").value);
+          document.getElementById("var2").value = parseInt(document.getElementById("var1").value) - parseInt(document.getElementById("var2").value);
+          document.getElementById("var1").value = parseInt(document.getElementById("var1").value) - parseInt(document.getElementById("var2").value);
+        }   */ 
+      
+        
+
+    </script>
+  
+</body>
+</html>

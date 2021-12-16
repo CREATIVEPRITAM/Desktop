@@ -1,0 +1,190 @@
+*{
+    box-sizing: border-box;
+}
+.main{
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 500px;
+    width: 400px;
+    border: 2px solid red;
+}
+.header{
+    position: sticky;
+    top: 0px;
+    z-index: 999;
+    display: flex;
+    justify-content: space-evenly;
+    height: 60px;
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid black;
+}
+.logo{
+    height: 50px;
+    width: 65%;
+    display: flex;
+    align-items: center;
+    font-family: cursive;
+}
+.post-button{
+    height: 50px;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.all-follow{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    height: 120px;
+    width: 400px;
+    background-color: rgb(255, 255, 255);
+}
+.usser-profile{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 90px;
+    width: 90px;
+}
+.img-area{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    height: 80px;
+    width: 70px;
+}
+.user-image{
+    margin: auto;
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;   
+}
+.profile-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    right: 0px;
+    bottom: 2px;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    position: absolute;
+    border: 3px solid white;
+    background-color: rgb(51, 108, 233);
+
+}
+.profile-button:hover{
+    cursor: pointer;
+}
+.usser-profile1{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 90px;
+    width: 70px;
+    margin: 0px 5px;
+
+}
+.img-area1{
+    display: flex;
+    align-items: center;
+    height: 80px;
+    width: 70px;
+}
+.img-area1:hover{
+    cursor: pointer;
+}
+.user-image1{
+    border: 3px solid red; 
+    margin: auto;
+    padding: 3px;
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;   
+}
+.post-header{
+    border-top: 1px solid rgb(10, 6, 6);
+    display: flex;
+    align-items: center;
+    height: 60px;
+    width: 400px;
+    background-color: rgb(255, 255, 255);
+}
+.look-status{
+    height: 50px;
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+.user-statuse{
+    border: 2px solid red; 
+    margin: auto;
+    padding: 3px;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px; 
+}
+.user-statuse:hover{
+    cursor: pointer;
+}
+.menu-threedot{
+    height: 50px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+   padding-right: 30px;
+}
+.post-image{
+    height: 400px;
+    width: 400px;
+}
+.footor{
+    position: absolute;
+    position: sticky;
+    bottom: 0px;
+    height: 50px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-top: 1px solid black;
+}
+.post-footer{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.post-footer1{
+    height: 40px;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.footer-button{
+    padding-left: 40px;
+}
+.footer-button:hover{
+    cursor: pointer;
+}
+.footer-img{
+    height: 25px;
+    width: 25px;
+    border-radius: 12px;
+}
+.comment{
+    height: 40px;
+    width: 100%;
+    padding: 0px 10px;
+}

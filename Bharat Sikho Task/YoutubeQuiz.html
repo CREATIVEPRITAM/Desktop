@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body onload="startQuize()">
+    <div class="main">
+      <div class="header">
+        <div class="timer"><img src="wait.gif" height="150" width="200" padding-top="100" /></div>
+        <div class="timer">02:00</div>
+      </div>
+      <div id="pogress-bar"></div>
+      <div class="quize-section">
+        <div class="Question-Area">
+          <div class="demo-questiontext">
+            <h1>Question</h1>
+            <div class="question-no">
+              <span style="margin-bottom: 10px; font-weight: 700"></span>
+              <span style="font-weight: 900; font-size: 35px"> / </span>
+              <span style="margin-top: 10px; font-size: 18px; font-weight: 900"></span>
+            </div>
+          </div>
+          <div id="questionishere" class="question-text"></div>
+        </div>
+        <div class="answer-Area">
+          <div class="first-answer">
+            <span class="order">A</span>
+            <div id="optionA" class="dummy-answer"></div>
+          </div>
+          <div class="first-answer">
+            <span class="order">B</span>
+            <div id="optionB" class="dummy-answer"></div>
+          </div>
+          <div class="first-answer">
+            <span class="order">C</span>
+            <div id="optionC" class="dummy-answer"></div>
+          </div>
+          <div class="first-answer">
+            <span class="order">d</span>
+            <div id="optionD" class="dummy-answer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button onclick="startQuize()">Start Quize</button>
+    <!-- <audio class="sound" controls>
+      <source src="horse.ogv" />
+    </audio> -->
+    <audio class="sound" controls loop>
+      <source src="new.ogg" />
+    </audio>
+    <script>
+      var questions = [
+        {
+          questionText: "Where is Tajmahal?",
+          options: [
+            { answerText: "Firozabad", isCorrectAnswer: false },
+            { answerText: "Agra", isCorrectAnswer: true },
+            { answerText: "Meerut", isCorrectAnswer: false },
+            { answerText: "Shikohabad", isCorrectAnswer: false },
+          ],
+        },
+        {
+          questionText: "Where is Kutub Minar?",
+          options: [
+            { answerText: "Firozabad", isCorrectAnswer: false },
+            { answerText: "Meerut", isCorrectAnswer: false },
+            { answerText: "Delhi", isCorrectAnswer: true },
+            { answerText: "Shikohabad", isCorrectAnswer: false },
+          ],
+        },
+      ];
+      var nextQuestionNumber = 0;
+
+      function startQuize() {
+        try {
+          var effactSound = document.getElementsByClassName("sound");
+          var countdownE = document.getElementsByClassName("timer")[0].firstChild;
+          var countdownEl = document.getElementsByClassName("timer")[1];
+          countdownEl.style.backgroundColor = "";
+          document.getElementsByClassName("question-no")[0].children[2].innerText = questions.length;
+          if (nextQuestionNumber + 1 <= questions.length) {
+            document.getElementsByClassName("question-no")[0].children[0].innerText = nextQuestionNumber + 1;
+            countdownE.setAttribute("src", "wait.gif");
+          }
+
+          // console.log("chalta rahega");
+          if (nextQuestionNumber == questions.length) {
+            return;
+          }
+          question = questions[nextQuestionNumber];
+          //  console.log(question);
+          document.getElementById("questionishere").innerText = question.questionText;
+          var option = question.options; //list
+          document.getElementById("optionA").innerText = option[0].answerText;
+          document.getElementById("optionB").innerText = option[1].answerText;
+          document.getElementById("optionC").innerText = option[2].answerText;
+          document.getElementById("optionD").innerText = option[3].answerText;
+
+          var startintime = 2;
+          var time = startintime * 60;
+          var alarm = setInterval(() => {
+            for (var i = 0; i < option.length; i++) {
+              document.getElementsByClassName("dummy-answer")[i].parentElement.style.backgroundColor = "";
+            }
+
+            var minuts = Math.floor(time / 100);
+            var second = time % 60;
+            // console.log(countdownEl.innerText);
+            countdownEl.innerText = "0" + minuts + ":" + (second < 10 ? "0" + second : second);
+            let totalTimeInSecs = minuts * 60;
+            time--;
+            if (countdownEl.innerText == "00:10") {
+              effactSound[0].play();
+              countdownEl.style.backgroundColor = "red";
+              //   console.log("ab me color ke niche hu");
+            } else if (countdownEl.innerText == "00:00") {
+              effactSound[0].pause();
+              if (nextQuestionNumber + 1 == questions.length) {
+                // console.log(effactSound[1].pouse());
+
+                countdownE.setAttribute("src", "end.gif");
+              } else {
+                countdownE.setAttribute("src", "loss.gif");
+              }
+              for (var i = 0; i < option.length; i++) {
+                if (option[i].isCorrectAnswer == true) {
+                  document.getElementsByClassName("dummy-answer")[i].parentElement.style.backgroundColor = "rgb(18, 230, 113)";
+                } else {
+                  document.getElementsByClassName("dummy-answer")[i].parentElement.style.backgroundColor = "";
+                }
+              }
+              clearInterval(alarm);
+              nextQuestionNumber = nextQuestionNumber + 1;
+              setTimeout(startQuize, 1000);
+            }
+          }, 100);
+        } catch (error) {
+          //console.log(error);
+        }
+      }
+    </script>
+  </body>
+</html>

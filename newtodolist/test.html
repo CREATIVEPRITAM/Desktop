@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="newtodo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+</head>
+<body>
+    
+    <div class="main-contener">
+        <div class="header">
+           <h2 style="color: lightgoldenrodyellow;">To Do List</h2>
+        </div>
+        <div class="body" id="task-contener">
+           <!-- <div class="list">
+                <input type="radio" onclick="doneIt(event)">
+                <input type="text"  class="text-writer" maxlength="30" onkeyup="workComplited(event)">
+                <hr class="stike-Text">
+                <i class="fas fa-trash" onclick="deleteTask(event)" style="color: rgb(84, 84, 218); display: none"></i>
+            </div> -->
+           
+        </div>
+        <div class="footer">
+            <button id="creat-button" onclick="creatNewtask()">
+                <i class="fas fa-plus"></i>
+            </button>
+            
+        </div>
+    </div>
+   
+</body>
+<script>
+        
+        function workComplited(event){
+            if(event.keyCode == 13){
+                event.target.disabled = true;
+            }else{
+
+            }    
+        }
+        //this function on the work of radio button the back ground color is green becouse it is denoted to 
+        //the work is compleate 
+        var ramou = 0;
+        function doneIt(event){
+            var changing = event.target;
+            if(ramou==0){
+                changing.nextElementSibling.style.backgroundColor="#2ecc71";
+                changing.nextElementSibling.style.color="#F5F5F7";
+                changing.nextElementSibling.style.textDecoration= "line-through";
+                changing.parentElement.children[2].style.display="inline-block";
+
+                changing.checked =true;
+                ramou=1;
+            }else{
+                changing.nextElementSibling.style.backgroundColor="rgb(240, 239, 243)";
+                changing.nextElementSibling.style.textDecoration= "none";
+                changing.nextElementSibling.style.color="";
+                changing.parentElement.children[2].style.display="inline-block";
+                changing.checked =false;
+                ramou=0;
+            }
+          //  console.dir(event.target.nextElementSibling);
+        }
+        function deleteTask(event){
+            event.target.parentElement.remove();
+        }
+        function creatNewtask() {
+            var newTask = document.createElement("div");
+            newTask.setAttribute("class","list");
+            var x=document.getElementById("task-contener").insertBefore(newTask, document.getElementById("task-contener").children[0]);
+           console.log(x);
+            //document.getElementById("task-contener").appendChild(newTask);
+
+            var checkbutton = document.createElement("input");
+            checkbutton.setAttribute("type","checkbox");
+            checkbutton.setAttribute("onclick","doneIt(event)");
+            checkbutton.setAttribute("class","checkbox");
+            newTask.appendChild(checkbutton);
+
+            var taskButton = document.createElement("input");
+            taskButton.setAttribute("type","text");
+            taskButton.setAttribute("autofocus","");
+            taskButton.setAttribute("class","text-writer");
+            taskButton.setAttribute("onkeyup","workComplited(event)");
+            newTask.appendChild(taskButton);
+
+            var allTaskElements = document.getElementsByClassName("text-writer");
+            for(var i=0;i<allTaskElements.length;i++){
+
+            }
+          //  console.log(newTask.appendChild(taskButton));
+            
+            var deleteButton = document.createElement("i");
+            deleteButton.setAttribute("class","fas fa-trash");
+            deleteButton.setAttribute("style","color: rgb(84, 84, 218); display: none");
+            deleteButton.setAttribute("onclick","deleteTask(event)");
+            newTask.appendChild(deleteButton);
+         //   console.log(newTask.appendChild(deleteButton));
+        }
+</script>
+</html>

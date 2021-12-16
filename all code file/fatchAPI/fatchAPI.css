@@ -1,0 +1,114 @@
+*{
+    box-sizing: border-box;
+}
+.main{
+    height: 250px;
+    width: 500px;
+    border: 1px solid black;
+}
+.header{
+    height: 70px;
+    width: 100%;
+    display: flex;
+}
+.logo{
+
+    height: 70px;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bharat-sarkar{
+    height: 70px;
+    width: 30%;
+    text-align: center;
+}
+.bharat-logo{
+    height: 60px;
+    width: 60px;
+
+}
+.body{
+    height: 110px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.div-img{
+    height: 90px;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.user-img{
+    height: 90px;
+    width: 90px;
+    border: 1px solid rgb(2, 1, 1);
+    border-radius: 5px;
+}
+.user-name{
+    text-transform: capitalize;
+    font-size: 17px;
+}
+.user-id{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+}
+.adhar-no{
+    width: 70%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-right: 30px;
+}
+.Qrcode{
+    height: 80px;
+    width: 80px;
+}
+.all-buttin{
+    margin-top: 20px;
+    height: 70px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+button{
+    height: 40px;
+    width: 100px;
+    font-size: 20px;
+    text-transform: capitalize;
+    background-color: blue;
+    border: none;
+    color: white;
+    border-radius: 10px;
+}
+button:hover{
+    cursor: pointer;
+}
+input{
+    height: 30px;
+    width: 150PX;
+    border: none;
+    outline: none;
+    box-shadow: 5px 5px 5px black;
+    text-align: center;
+    font-size: 20px;
+    text-transform: capitalize;
+    border-radius: 10px;
+
+}
+.input-box{
+    height: 100px;
+    width: 200px;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

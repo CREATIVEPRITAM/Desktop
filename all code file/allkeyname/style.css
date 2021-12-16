@@ -1,0 +1,61 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(240, 219, 204);
+    height: 100vh;
+    font-family: fantasy;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    overflow: hidden;
+}
+.key{
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 50px;
+    width: 100px;
+    background-color: cornflowerblue;
+    font-size: 20px;
+    font-weight: 400;
+    border: none;
+    border-radius: 10px;
+}
+#demo{
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 50px;
+    width: 100px;
+    background-color: cornflowerblue;
+    font-size: 20px;
+    font-weight: 400;
+    border: none;
+    border-radius: 10px;
+}
+/* this is css for my game titocdoe */
+
+.firstrow{
+   flex-direction: row;
+    display: flex;
+}
+.number{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 80px;
+    width: 80px;
+    background-color: red;
+    border: 1px solid yellow;
+    color: white;
+    size: 50px;
+}

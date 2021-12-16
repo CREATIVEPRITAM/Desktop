@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tictocdoe</title>
+    <link rel="stylesheet" href="../allkeyname/style.css">
+
+
+</head>
+<body style="display: flex; flex-direction: column;">
+    
+       <div class="firstrow">
+            <div id="b1" class="number" onclick="playerFunction(event)"></div>
+            <div id="b2" class="number" onclick="playerFunction(event)"></div>
+            <div id="b3" class="number" onclick="playerFunction(event)"></div>
+       </div>
+       <div class="firstrow">
+            <div id="b4" class="number" onclick="playerFunction(event)"></div>
+            <div id="b5" class="number" onclick="playerFunction(event)"></div>
+            <div id="b6" class="number" onclick="playerFunction(event)"></div>
+       </div>
+       <div class="firstrow">
+            <div id="b7" class="number" onclick="playerFunction(event)"></div>
+            <div id="b8" class="number" onclick="playerFunction(event)"></div>
+            <div id="b9" class="number" onclick="playerFunction(event)"></div>
+       </div>
+       <div style="clear: both;margin-top: 15px;">
+            Result: <p id="resultStatus"></p>
+            
+            <div  id="restartBtn" onclick="restart()" style="height: 35px; width: 70px; display: flex; align-items: center; 
+             background-color: rgb(194, 145, 39); justify-content: center;"
+            >Restart</div>
+       </div>
+   <script>
+       var whoIsThePlayer =0;
+       var firstPlayerMove = "";
+       var secondPlayerMove = "";
+       var numberOfCount = 0; 
+       var isFirstPlayerWinner = false;
+       var isSecondPlayerWinner = false;
+       function playerFunction(event) {
+        //console.log("ga chal rha he");
+
+        if(isFirstPlayerWinner == true || isSecondPlayerWinner == true){
+            alert("bhaiya phir se restart kare");
+            return;
+        }
+           
+           numberOfCount = numberOfCount+1;
+
+           event.target.removeAttribute("onclick");
+           if(whoIsThePlayer==0){
+                var innerValue = event.target.id;
+                event.target.innerText = "O";
+                firstPlayerMove += innerValue;
+                whoIsThePlayer =1;
+            }else{
+                var innerValue = event.target.id;
+                event.target.innerText = "X";
+                secondPlayerMove += innerValue;
+                whoIsThePlayer=0;
+            }
+            console.log("FIRST PLAYER MOVE:" + firstPlayerMove );
+            console.log("Second PLAYER MOVE:" + secondPlayerMove );
+            //first column logic    
+            if(firstPlayerMove.indexOf("b1") != -1 && firstPlayerMove.indexOf("b2") != -1 && firstPlayerMove.indexOf("b3") != -1){
+                document.getElementById("resultStatus").innerText = "First Player Win";
+                isFirstPlayerWinner = true;
+                isSecondPlayerWinner = false;
+            }
+            
+            if(secondPlayerMove.indexOf("b1") != -1 && secondPlayerMove.indexOf("b2") != -1 && secondPlayerMove.indexOf("b3") != -1){
+                document.getElementById("resultStatus").innerText = "Second Player Win";
+                isFirstPlayerWinner = false;
+                isSecondPlayerWinner = true;
+            }
+
+            //Second column logic
+            if(firstPlayerMove.indexOf("b4") != -1 && firstPlayerMove.indexOf("b5") != -1 && firstPlayerMove.indexOf("b6") != -1){
+                document.getElementById("resultStatus").innerText = "First Player Win";
+                isFirstPlayerWinner = true;
+                isSecondPlayerWinner = false;
+            }
+            
+            if(secondPlayerMove.indexOf("b4") != -1 && secondPlayerMove.indexOf("b5") != -1 && secondPlayerMove.indexOf("b6") != -1){
+                document.getElementById("resultStatus").innerText = "Second Player Win";
+                isFirstPlayerWinner = false;
+                isSecondPlayerWinner = true;
+            }
+
+            //Third Column logic
+            if(firstPlayerMove.indexOf("b7") != -1 && firstPlayerMove.indexOf("b8") != -1 && firstPlayerMove.indexOf("b9") != -1){
+                document.getElementById("resultStatus").innerText = "First Player Win";
+                isFirstPlayerWinner = true;
+                isSecondPlayerWinner = false;
+            }
+
+            if(secondPlayerMove.indexOf("b7") != -1 && secondPlayerMove.indexOf("b8") != -1 && secondPlayerMove.indexOf("b9") != -1){
+                document.getElementById("resultStatus").innerText = "Second Player Win";
+                isFirstPlayerWinner = false;
+                isSecondPlayerWinner = true;
+            }
+
+            //First row
+            if(firstPlayerMove.indexOf("b1") != -1 && firstPlayerMove.indexOf("b4") != -1 && firstPlayerMove.indexOf("b7") != -1){
+                document.getElementById("resultStatus").innerText = "First Player Win";
+                isFirstPlayerWinner = true;
+                isSecondPlayerWinner = false;
+            }
+
+            if(secondPlayerMove.indexOf("b1") != -1 && secondPlayerMove.indexOf("b4") != -1 && secondPlayerMove.indexOf("b7") != -1){
+                document.getElementById("resultStatus").innerText = "Second Player Win";
+                isFirstPlayerWinner = false;
+                isSecondPlayerWinner = true;
+            }
+
+            //second row
+            if(firstPlayerMove.indexOf("b2") != -1 && firstPlayerMove.indexOf("b5") != -1 && firstPlayerMove.indexOf("b8") != -1){
+                document.getElementById("resultStatus").innerText = "First Player Win";
+                isFirstPlayerWinner = true;
+                isSecondPlayerWinner = false;
+            }
+
+            
+            if(secondPlayerMove.indexOf("b2") != -1 && secondPlayerMove.indexOf("b5") != -1 && secondPlayerMove.indexOf("b8") != -1){
+                document.getElementById("resultStatus").innerText = "Secod Player Win";
+                isFirstPlayerWinner = false;
+                isSecondPlayerWinner = true;
+            }
+            //third row
+            if(firstPlayerMove.indexOf("b3") != -1 && firstPlayerMove.indexOf("b6") != -1 && firstPlayerMove.indexOf("b9") != -1){
+                document.getElementById("resultStatus").innerText = "First Player Win";
+                isFirstPlayerWinner = true;
+                isSecondPlayerWinner = false;
+            }
+            
+            if(secondPlayerMove.indexOf("b3") != -1 && secondPlayerMove.indexOf("b6") != -1 && secondPlayerMove.indexOf("b9") != -1){
+                document.getElementById("resultStatus").innerText = "Second Player Win";
+                isFirstPlayerWinner = false;
+                isSecondPlayerWinner = true;
+            }
+            //diagonal 1
+            if(firstPlayerMove.indexOf("b1") != -1 && firstPlayerMove.indexOf("b5") != -1 && firstPlayerMove.indexOf("b9") != -1){
+                document.getElementById("resultStatus").innerText = "First Player Win";
+                isFirstPlayerWinner = true;
+                isSecondPlayerWinner = false;
+            }
+            
+            if(secondPlayerMove.indexOf("b1") != -1 && secondPlayerMove.indexOf("b5") != -1 && secondPlayerMove.indexOf("b9") != -1){
+                document.getElementById("resultStatus").innerText = "Second Player Win";
+                isFirstPlayerWinner = false;
+                isSecondPlayerWinner = true;
+            }
+            //diagonal 2
+            if(firstPlayerMove.indexOf("b3") != -1 && firstPlayerMove.indexOf("b5") != -1 && firstPlayerMove.indexOf("b7") != -1){
+                document.getElementById("resultStatus").innerText = "First Player Win";
+                isFirstPlayerWinner = true;
+                isSecondPlayerWinner = false;
+            }
+            
+            if(secondPlayerMove.indexOf("b3") != -1 && secondPlayerMove.indexOf("b5") != -1 && secondPlayerMove.indexOf("b7") != -1){
+                document.getElementById("resultStatus").innerText = "Second Player Win";
+                isFirstPlayerWinner = false;
+                isSecondPlayerWinner = true;
+            }
+
+            if(isFirstPlayerWinner == false && isSecondPlayerWinner == false && numberOfCount ==  9){
+                document.getElementById("resultStatus").innerText = "Math withdraw.";
+            }
+       }
+
+       function restart(){
+           for(var i=1;i<=9;i++){
+               document.getElementById("b"+i).innerText="";
+           }
+
+           for(var j=1;j<=9;j++){
+                document.getElementById("b"+j).setAttribute("onclick","playerFunction(event)");
+           }
+
+            whoIsThePlayer =0;
+            firstPlayerMove = "";
+            secondPlayerMove = "";
+
+            isFirstPlayerWinner = false;
+            isSecondPlayerWinner = false;
+            numberOfCount=0;
+
+            document.getElementById("resultStatus").innerText="";
+
+       }
+           
+/*       function defineFunction(event) {
+
+        
+       document.getElementById("num2").innerText = event.key;   
+       document.getElementById("num3").innerText = event.key;   
+       document.getElementById("num4").innerText = event.key;   
+       document.getElementById("num5").innerText = event.key;   
+       document.getElementById("num6").innerText = event.key;   
+       document.getElementById("num7").innerText = event.key;   
+       document.getElementById("num8").innerText = event.key;   
+       document.getElementById("num9").innerText = event.key;   
+
+       */  
+   </script>
+</body>
+</html>
+<!--
+<center>
+    <div>
+        <div style="display: flex;">
+            <div style="height: 50px; width: 50px; background-color: brown;"></div>
+            <div style="height: 50px; width: 50px; background-color: brown;"></div>
+            <div style="height: 50px; width: 50px; background-color: brown;"></div>
+        </div>
+        <div style="display: flex;">
+            <div style="height: 50px; width: 50px; background-color: brown;"></div>
+            <div style="height: 50px; width: 50px; background-color: brown;"></div>
+            <div style="height: 50px; width: 50px; background-color: brown;"></div>
+        </div>
+        <div style="display: flex;">
+            <div style="height: 50px; width: 50px; background-color: brown;"></div>
+            <div style="height: 50px; width: 50px; background-color: brown;"></div>
+            <div style="height: 50px; width: 50px; background-color: brown;"></div>
+        </div>
+    </div>
+</center>
+
+<button type="button">palyer1</button>
+<button type="button">palyer3</button>
+
+-->

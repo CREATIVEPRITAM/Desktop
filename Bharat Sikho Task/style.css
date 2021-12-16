@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+}
+.main {
+  padding-top: 30px;
+  color: white;
+  height: 630px;
+  width: 100%;
+  color: black;
+}
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+}
+
+#pogress-bar{
+ height: 5px;
+ background-color: brown;
+ margin-top: 30px;
+}
+
+.timer{
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 80px;
+  width: 20%;
+  border-radius: 20px;
+}
+/* this is the quize section  */
+.quize-section {
+  height: 500px;
+  width: 100%;
+  display: flex;
+}
+.Question-Area {
+  height: 500px;
+  width: 50%;
+}
+.demo-questiontext {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding-left: 20px;
+  height: 100px;
+  width: 100%;
+  margin-top: 50px;
+}
+.question-no {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+  height: 100px;
+  width: 40%;
+}
+.question-text {
+  display: flex;
+  text-transform: capitalize;
+  border-radius: 10px;
+  height: 300px;
+  font-size: 25px;
+  width: 100%;
+  padding: 40px 0px 0px 15px;
+}
+.answer-Area {
+  margin-top: 50px;
+  height: 400px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;}
+.first-answer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  height: 60px;
+  width: 80%;
+  border-radius: 30px;
+  margin: 10px 0px;
+  box-shadow: 1px 1px 5px 0px rgb(255, 225, 142);
+}
+.order {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px 0px 0px 30px;
+  height: 55px;
+  width: 40px;
+  left: 0px;
+  font-size: 20px;
+  font-weight: 800}
+.dummy-answer{
+ font-size: 20px;
+ text-transform: capitalize
+}

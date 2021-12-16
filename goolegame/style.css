@@ -1,0 +1,45 @@
+*{
+    box-sizing: border-box;
+}
+.contener{
+    height: 400px;
+    width: 700px;
+    background-color: royalblue;
+}
+.subject{
+    height: 100px;
+    width: 50px;
+    background-color: saddlebrown;
+    position: relative;
+    left:10px;
+    top: 300px;
+    border-radius: 20px 20px 0px 0px;
+}
+.object{
+    border-radius: 20px 20px 0px 0px;
+    height: 50px;
+    width: 50px;
+    background-color: turquoise;
+    position: relative;
+    left: 650px;
+    top: 245px;
+    animation: objectMove 1s infinite;
+}
+@keyframes objectMove {
+    0%   {left: 650px}
+  100% {left: 50px;} 
+}
+.jump-button{
+    height: 50px;
+    width: 500px;
+    background-color: blue;
+    color: white;
+    position: relative;
+    left: 100px;
+    border: none;
+    outline: none;
+    margin-top: 60px;
+    font-size: 25px;
+    text-transform: capitalize;
+    font-weight: 700;
+}

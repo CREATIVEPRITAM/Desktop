@@ -1,0 +1,19 @@
+ *{
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+ }
+ 
+h1{
+    
+    font-family: 'Dancing Script', cursive;
+}
+
+.carousel-inner img{
+    width: 100px;
+    height: 80vh;
+}
+.card-body img{
+    max-width: 50%;
+    max-height: 200px;
+}
